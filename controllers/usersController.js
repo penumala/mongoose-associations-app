@@ -6,6 +6,13 @@ router.get('/new', (req, res) => {
   res.render('users/new.ejs');
 });
 
+// ALL USERS INDEX
+router.get('/', (req, res) => {
+    User.find({}, (error, users) => {
+      res.render('users/index.ejs', { users });
+    });
+  });
+
 
 // ADD EMPTY FORM TO USER SHOW PAGE TO ADD TWEET TO A USER
 router.get('/:userId', (req, res) => {
